@@ -1,0 +1,6 @@
+{
+ "recall": 1.0,
+ "false_triggers": 0,
+ "routing_accuracy": 1.0,
+ "n": 20
+}

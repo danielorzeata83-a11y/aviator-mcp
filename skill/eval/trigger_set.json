@@ -1,0 +1,32 @@
+{
+ "skills": [
+  {"name": "aviator-mergequeue", "description": "__AVIATOR__"},
+  {"name": "github", "description": "Work with GitHub repositories, pull requests, issues, reviews, Actions workflows and GitHub's native merge queue (branch protection 'Require merge queue') via the gh CLI and GitHub API."},
+  {"name": "mergify", "description": "Mergify CLI: manage Mergify merge queues, stacked PRs, Test Insights, merge protections and .mergify.yml config."},
+  {"name": "git-basics", "description": "Local git operations: commits, branches, rebase, cherry-pick, resolving merge conflicts, stash, bisect, reflog."},
+  {"name": "datadog", "description": "Query Datadog metrics, logs, monitors and dashboards; investigate incidents and CI visibility."},
+  {"name": "jira", "description": "Create, search and update Jira issues, sprints and boards."}
+ ],
+ "queries": [
+  {"q": "Is our Aviator queue paused on acme/api?", "expect": "aviator-mergequeue"},
+  {"q": "PR 4412 has been sitting in the merge queue for 2 hours, Aviator says blocked — why?", "expect": "aviator-mergequeue"},
+  {"q": "skip the line for my hotfix PR, it's a prod outage (we use aviator)", "expect": "aviator-mergequeue"},
+  {"q": "Change our aviator.yaml to parallel mode with batch_size 3", "expect": "aviator-mergequeue"},
+  {"q": "The bot PR from MergeQueue failed CI, which of the batched PRs caused it?", "expect": "aviator-mergequeue"},
+  {"q": "Freeze merges to release-* in MergeQueue until Monday", "expect": "aviator-mergequeue"},
+  {"q": "how many PRs did aviator merge last week and what's the average wait time", "expect": "aviator-mergequeue"},
+  {"q": "/aviator backport didn't work on PR 88, can you backport it to release-3 via the API?", "expect": "aviator-mergequeue"},
+  {"q": "Explain non_destructive_skip_line in Aviator's parallel mode", "expect": "aviator-mergequeue"},
+  {"q": "dequeue PR 17 from the aviator merge queue", "expect": "aviator-mergequeue"},
+  {"q": "Enable GitHub's built-in merge queue on the main branch protection rule", "expect": "github"},
+  {"q": "Our .mergify.yml queue rules aren't batching PRs, fix the config", "expect": "mergify"},
+  {"q": "How do I resolve a merge conflict when rebasing my feature branch?", "expect": "git-basics"},
+  {"q": "Use git bisect to find which commit broke the build", "expect": "git-basics"},
+  {"q": "Show me the CI pipeline duration dashboard in Datadog", "expect": "datadog"},
+  {"q": "Create a Jira ticket for the flaky login test", "expect": "jira"},
+  {"q": "Open a PR on GitHub with these changes and request review from @ana", "expect": "github"},
+  {"q": "What's the best way to queue background jobs in Python, Celery or RQ?", "expect": "none"},
+  {"q": "Write a poem about airplanes and aviators", "expect": "none"},
+  {"q": "Set up a message queue with RabbitMQ for our order service", "expect": "none"}
+ ]
+}

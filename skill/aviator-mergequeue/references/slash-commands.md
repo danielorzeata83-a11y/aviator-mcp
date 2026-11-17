@@ -1,0 +1,71 @@
+<!-- Source: docs.aviator.co (github.com/aviator-co/gitbook-docs, MIT License, © Aviator Technologies, Inc.). Unmodified except for markup cleanup. -->
+
+# GitHub Slash Commands
+
+Read the how-to-guide on [using Slash commands](https://docs.aviator.co/mergequeue/how-to-guides/slash-commands) from within GitHub comments.
+
+## Help
+
+The `/aviator help` command posts a single comment on the pull request listing the available `/aviator` commands and their options, grouped as MergeQueue, FlexReview, Runbooks, and Git Operations.
+
+```
+/aviator help
+```
+
+The help comment lists commands across all Aviator products, including ones that your account or repository does not have enabled. A command for a product that is not enabled will not perform the action.
+
+If you post a command that Aviator does not recognize, Aviator replies with `Unknown /aviator command` and suggests running `/aviator help` to see the available commands.
+
+## Merge
+
+The `/aviator merge` command queues a PR for merging. This can be used instead of adding the ready label.
+
+This command can also be used to merge stacked PRs. When queueing a stack, MergeQueue internally queues the PR where the command was given and every PR that comes before it in the stack. The target branch of the stack (i.e., the branch where that the stack is being merged into) is the base branch of the first PR in the stack. Read the details about [merging stacked PRs](../how-to-guides/merging-stacked-prs.md).
+
+When merging a stack, any PRs that come later in the stack (after the PR where the stack merge command was issued) will have to be rebased using the `av` command line tool.
+
+For example, if your stack consists of PR1 through PR5, and PR3 is queued, PR4 and PR5 will have to be rebased on top of the commit where PR3 was merged into the stack's target branch (e.g., `main`). This means that PR3 must be merged before PR4 or PR5 can be queued.
+
+### Stack merge (deprecated)
+
+The `/aviator stack merge` command can be used to queue a stack for merging into the target branch of the stack (usually your repository default branch).
+
+This is now deprecated, please use `/aviator merge` for merging the stacked PRs.
+
+## Cancel
+
+The `/aviator cancel` command de-queues a PR that has been previously queued.
+
+When using the parallel queue mode, de-queuing a PR can negatively impact the performance of the queue (since any PR that was queued after the cancelled PR will have their CI reset).
+
+### Stack Cancel (deprecated)
+
+The `aviator stack cancel` command can be used to de-queue a stack that has been previously queued.
+
+This is now now deprecated, please use `/aviator cancel`  for canceling a stack merge.
+
+## Refresh
+
+The `/aviator refresh` command causes MergeQueue to re-examine your pull request. This can be useful if MergeQueue missed an event (such as you labeling your PR with the ready label).
+
+Usually this is only necessary if GitHub fails to deliver an event to MergeQueue (e.g., during a GitHub outage).
+
+## Backport
+
+The `/aviator backport` command can be used to backport a given PR to the specified target branch. This opens a new PR that has the cherry-picked changes from the current PR but targeting the specified base branch.
+
+```
+/aviator backport <target_branch>
+```
+
+## Sync
+
+The `/aviator sync` command synchronizes the PR to be up-to-date with its base branch (i.e., creates a merge commit or rebases on top of the latest commit from the base branch, depending on your repository configuration).
+
+## Validate Config
+
+The `/aviator validate-config` command validates the `.aviator/config.yml` file on the current PR branch. Aviator will post a comment on the PR indicating whether the configuration is valid or listing any validation errors. This is useful for catching configuration mistakes before merging into the default branch.
+
+## Blocking
+
+The `/aviator block until` command will block a PR from being merged until a certain block condition is met. Aviator current supports blocking by PR (example: `\aviator block until #382)` and blocking by timestamp (example: `\aviator block until Monday 9pm`). For more information, view the [how-to guide](https://app.gitbook.com/o/RHS3UXVvKc7g6MUrTeGU/s/OAPqUQVbLbsfI5YESl32/~/changes/367/mergequeue/how-to-guides/how-to-block-pull-request-mergeing-with-slash-commands).

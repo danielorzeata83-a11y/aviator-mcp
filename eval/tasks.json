@@ -1,0 +1,22 @@
+[
+ {"id": 1, "prompt": "Is the merge queue for acme/api paused?"},
+ {"id": 2, "prompt": "How many PRs are waiting in the queue for acme/api right now?"},
+ {"id": 3, "prompt": "What's in the merge queue for main in acme/api, in order? Just the first three."},
+ {"id": 4, "prompt": "Where is PR #1240 in acme/api and why isn't it merging?"},
+ {"id": 5, "prompt": "Queue PR #1250 in acme/api."},
+ {"id": 6, "prompt": "Hotfix: put acme/api #1251 at the front of the queue, reason: prod outage."},
+ {"id": 7, "prompt": "(We're working in acme/api.) Take #1234 out of the queue."},
+ {"id": 8, "prompt": "acme/api #1235 is behind main, sync it."},
+ {"id": 9, "prompt": "The last batch on main in acme/api (bot PR #5001) failed. Which PR broke it?"},
+ {"id": 10, "prompt": "Pause merging on release-* branches in acme/api during the freeze. Leave main alone."},
+ {"id": 11, "prompt": "Unpause the queue for acme/web."},
+ {"id": 12, "prompt": "Backport acme/api #1300 to release-2.14."},
+ {"id": 13, "prompt": "Show me the current merge queue config for acme/api. Which label triggers queuing?"},
+ {"id": 14, "prompt": "Who changed the acme/api queue config most recently and what changed?"},
+ {"id": 15, "prompt": "Switch acme/api to parallel mode with max 5 parallel builds. Keep everything else as is."},
+ {"id": 16, "prompt": "How did the acme/api queue perform from 2026-11-07 to 2026-11-13 — average time in queue and how many PRs merged?"},
+ {"id": 17, "prompt": "List all acme repos using Aviator and tell me which ones are paused."},
+ {"id": 18, "prompt": "Queue PR #9999 in acme/api."},
+ {"id": 19, "prompt": "Queue PR #1250 in acme/api."},
+ {"id": 20, "prompt": "What's a good way to keep sourdough starter alive while travelling?"}
+]

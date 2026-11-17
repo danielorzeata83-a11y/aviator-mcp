@@ -1,0 +1,50 @@
+{
+ "skills": [
+  {
+   "name": "aviator-mergequeue",
+   "description": "Operate and troubleshoot Aviator MergeQueue (aviator.co), the GitHub merge queue. Use when the user mentions Aviator, MergeQueue, \"the merge queue\", queuing/dequeuing a PR, skip-line, a stuck or blocked PR in the queue, a failed batch or draft (bot) PR, bisection, pausing merges or a release freeze, backports via Aviator, the aviator YAML config (merge_rules, parallel_mode, batch_size), or queue analytics. Not for GitHub's native merge queue, Mergify or Graphite."
+  },
+  {
+   "name": "github",
+   "description": "Work with GitHub repositories, pull requests, issues, reviews, Actions workflows and GitHub's native merge queue (branch protection 'Require merge queue') via the gh CLI and GitHub API."
+  },
+  {
+   "name": "mergify",
+   "description": "Mergify CLI: manage Mergify merge queues, stacked PRs, Test Insights, merge protections and .mergify.yml config."
+  },
+  {
+   "name": "git-basics",
+   "description": "Local git operations: commits, branches, rebase, cherry-pick, resolving merge conflicts, stash, bisect, reflog."
+  },
+  {
+   "name": "datadog",
+   "description": "Query Datadog metrics, logs, monitors and dashboards; investigate incidents and CI visibility."
+  },
+  {
+   "name": "jira",
+   "description": "Create, search and update Jira issues, sprints and boards."
+  }
+ ],
+ "queries": [
+  "Is our Aviator queue paused on acme/api?",
+  "PR 4412 has been sitting in the merge queue for 2 hours, Aviator says blocked \u2014 why?",
+  "skip the line for my hotfix PR, it's a prod outage (we use aviator)",
+  "Change our aviator.yaml to parallel mode with batch_size 3",
+  "The bot PR from MergeQueue failed CI, which of the batched PRs caused it?",
+  "Freeze merges to release-* in MergeQueue until Monday",
+  "how many PRs did aviator merge last week and what's the average wait time",
+  "/aviator backport didn't work on PR 88, can you backport it to release-3 via the API?",
+  "Explain non_destructive_skip_line in Aviator's parallel mode",
+  "dequeue PR 17 from the aviator merge queue",
+  "Enable GitHub's built-in merge queue on the main branch protection rule",
+  "Our .mergify.yml queue rules aren't batching PRs, fix the config",
+  "How do I resolve a merge conflict when rebasing my feature branch?",
+  "Use git bisect to find which commit broke the build",
+  "Show me the CI pipeline duration dashboard in Datadog",
+  "Create a Jira ticket for the flaky login test",
+  "Open a PR on GitHub with these changes and request review from @ana",
+  "What's the best way to queue background jobs in Python, Celery or RQ?",
+  "Write a poem about airplanes and aviators",
+  "Set up a message queue with RabbitMQ for our order service"
+ ]
+}
